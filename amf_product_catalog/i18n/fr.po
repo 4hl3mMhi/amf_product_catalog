@@ -1,0 +1,35 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* amf_product_catalog
+#
+# Translators:
+# Ahlem Mehri <https://www.linkedin.com/in/ahlem-mehri>, 2023
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-09-23 12:41+0000\n"
+"PO-Revision-Date: 2023-09-23 12:41+0000\n"
+"Last-Translator: Ahlem Mehri <https://www.linkedin.com/in/ahlem-mehri>\n\n"
+"Language-Team: Arabic (https://www.linkedin.com/in/ahlem-mehri)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: amf_product_catalog
+#: model_terms:ir.ui.view,arch_db:amf_product_catalog.report_product_catalog
+msgid "<span>PRODUCT CATALOG</span>"
+msgstr "<span>CATALOGUE DE PRODUIT</span>"
+
+#. module: amf_product_catalog
+#: model:ir.actions.report,name:amf_product_catalog.action_report_product_catalog_1
+#: model:ir.actions.report,name:amf_product_catalog.action_report_product_catalog_2
+msgid "Product Catalog"
+msgstr "CATALOGUE DE PRODUIT"
+
+#. module: amf_product_catalog
+#: model_terms:ir.ui.view,arch_db:amf_product_catalog.report_product_catalog
+msgid "REF:"
+msgstr "REF:"

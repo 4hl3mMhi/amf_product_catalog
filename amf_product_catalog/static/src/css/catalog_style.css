@@ -1,0 +1,20 @@
+/*Modifications for the Standard and Boxed document layouts */
+.o_img_padding {
+    padding: 20px 20px 10px;
+}
+
+.o_catalog_title {
+    margin-bottom: 20px;
+}
+
+.o_cell_head {
+    font-size: 20px;
+}
+
+.tr_price {
+    color:black;
+    font-size:2rem;
+    margin-bottom:0.5rem;
+    font-weight:500;
+    line-height:1.2;
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="report_product_catalog">
+        <t t-call="web.external_layout">
+            <t t-set="o" t-value="o.with_context(lang=lang)"/>
+            <t t-if="env.company.external_report_layout_id.id == env.ref('web.external_layout_boxed').id">
+                <t t-set="price_color" t-value="env.company.primary_color"/>
+            </t>
+            <div class="page">
+                <h2 class="text-center o_catalog_title">
+                    <span>PRODUCT CATALOG</span>
+                </h2>
+                <table class="table table_catalog o_main_table">
+                    <thead>
+                        <tr>
+                            <th class="text-center o_cell_head">
+                                <span t-field="o.name"/>
+                                <t t-if="doc_model == 'product.product'">
+                                    <t t-set="variant_names" t-value="', '.join(o.product_template_variant_value_ids.mapped('name'))"/>
+                                    <t t-if="variant_names">
+                                        <br/>
+                                        (<span t-out="variant_names"/>)
+                                    </t>
+                                </t>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="text-center">
+                                <div>
+                                    <span t-field="o.image_1920"
+                                          t-options='{"widget": "image", "class": "o_img_padding"}'/>
+                                </div>
+                                <div class="div-h-50">
+                                    <h6 t-if="o.default_code">
+                                        REF:
+                                        <span t-field="o.default_code"/>
+                                    </h6>
+                                </div>
+                                <div class="wh-description">
+                                    <p t-if="o.description_sale">
+                                        <span t-field="o.description_sale"/>
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <t t-if="price_color">
+                            <tr t-att-style="'background-color:' + price_color or ''">
+                                <td class="text-center">
+                                    <p t-field="o.list_price" class="tr_price"
+                                       t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-else="">
+                            <tr>
+                                <td class="text-center">
+                                    <h2 t-field="o.list_price"
+                                        t-options='{"widget": "monetary", "display_currency": o.company_id.currency_id}'/>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_product_template_catalog">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="o.company_id.partner_id.lang or env.company.partner_id.lang"/>
+                <t t-call="amf_product_catalog.report_product_catalog" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+
+    <template id="report_product_product_catalog">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-set="lang" t-value="env.company.partner_id.lang or o.company_id.partner_id.lang"/>
+                <t t-call="amf_product_catalog.report_product_catalog" t-lang="lang"/>
+            </t>
+        </t>
+    </template>
+</odoo>
